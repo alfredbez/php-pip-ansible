@@ -12,6 +12,8 @@ RUN apt-get update && apt-get install -y \
 	python -m pip install -U pip setuptools && \
 	python -m pip install ansible && \
 	wget https://phar.phpunit.de/phpcpd.phar -O /usr/bin/phpcpd && \
-	redis-server --daemonize yes &
+	chmod +x /usr/bin/phpcpd
+
+RUN redis-server --daemonize yes &
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
