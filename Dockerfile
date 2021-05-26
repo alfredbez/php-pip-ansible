@@ -1,8 +1,8 @@
-FROM php:7.1.30
+FROM php:7.4
 
 RUN apt-get update && apt-get install -y \
-	wget mysql-client redis-server \
-	git zlib1g-dev ssh libffi-dev libssl-dev rsync \
+	wget default-mysql-client redis-server \
+	git libzip-dev zlib1g-dev ssh libffi-dev libssl-dev rsync \
 	python-dev python-pip python-setuptools
 RUN docker-php-ext-install bcmath && \
 	docker-php-ext-install zip && \
